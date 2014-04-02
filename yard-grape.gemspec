@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Get the facts.
   s.name             = "yard-grape"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.description      = "Displays Grape routes (including comments) in YARD output."
 
   # External dependencies

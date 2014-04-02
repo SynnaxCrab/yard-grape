@@ -26,6 +26,10 @@ module YARD
       def show_real_name?
         real_name and caller[1] =~ /`signature'/
       end
+
+      def type
+        :method
+      end
     end
   end
 
@@ -34,10 +38,16 @@ module YARD
     # Displays Grape routes in YARD documentation.
     # Can also be used to parse routes from files without executing those files.
     module Grape
-      YARD::Tags::Library.define_tag("A Sample Tag", :real_name)
-
       # Logic both handlers have in common.
       module AbstractRouteHandler
+        def self.uri_prefix
+          uri_prefixes.join('')
+        end
+
+        def self.uri_prefixes
+          @prefixes ||= []
+        end
+
         def self.routes
           @routes ||= []
         end
